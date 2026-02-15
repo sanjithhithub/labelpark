@@ -1,18 +1,91 @@
-# 🏷️ Label Park – React Website
+# 🏷️ Label Park — React Website
 
-Official website for **Label Park**, Chennai's leading manufacturer and exporter of barcode labels, multicolor stickers, and Auto ID solutions.
+Multi-page React website for Label Park, Tiruppur — fully responsive, animated, with real email sending.
 
 ---
 
-## 🖥️ Tech Stack
+## ⚡ Quick Start (3 commands)
 
-| Tech | Version | Purpose |
-|------|---------|---------|
-| **React** | 18.2 | UI framework |
-| **React Router DOM** | 6.x | Multi-page routing |
-| **CSS Animations** | Native | Scroll reveals, keyframes, hover effects |
-| **Intersection Observer** | Native | Scroll-triggered animations |
-| **Google Fonts** | Barlow + Barlow Condensed | Typography |
+```bash
+# 1. Enter the folder
+cd labelpark-app
+
+# 2. Install packages (one-time, ~2 min)
+npm install
+
+# 3. Start dev server
+npm start
+```
+→ Opens automatically at **http://localhost:3000**
+
+**Requires:** Node.js 14+ → download from https://nodejs.org (choose LTS)
+
+---
+
+## 📧 Activate Real Email Sending to labelparkcbe@gmail.com
+
+The contact form sends enquiries to **labelparkcbe@gmail.com** using EmailJS (free, no backend needed).
+
+### Step 1 — Sign up at EmailJS (free)
+→ https://www.emailjs.com/  
+Free plan: **200 emails/month**
+
+### Step 2 — Add Gmail Service
+1. Dashboard → **Email Services** → **Add New Service**
+2. Choose **Gmail**
+3. Click **Connect Account** → sign in with `labelparkcbe@gmail.com`
+4. Service Name: `Label Park`
+5. Click **Create Service**
+6. Copy the **Service ID** (e.g. `service_abc1234`)
+
+### Step 3 — Create Email Template
+1. **Email Templates** → **Create New Template**
+2. Fill in:
+
+   **Subject:**
+   ```
+   New Enquiry from {{from_name}} – Label Park
+   ```
+
+   **Body:**
+   ```
+   Hello Label Park Team,
+
+   You have received a new enquiry:
+
+   Name:    {{from_name}}
+   Company: {{company}}
+   Email:   {{from_email}}
+   Phone:   {{phone}}
+   Product: {{product}}
+
+   Message:
+   {{message}}
+
+   ---
+   Sent via labelpark.in contact form
+   ```
+
+   **To Email:** `labelparkcbe@gmail.com`
+
+3. Click **Save** → copy the **Template ID** (e.g. `template_xyz9876`)
+
+### Step 4 — Get your Public Key
+1. Top-right → **Account** → **General**
+2. Copy **Public Key** (e.g. `ABC123XYZ456...`)
+
+### Step 5 — Paste into Contact.jsx
+Open `src/pages/Contact.jsx` and replace these 3 lines:
+
+```js
+const SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← e.g. 'service_abc1234'
+const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // ← e.g. 'template_xyz9876'
+const PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';  // ← e.g. 'ABC123XYZ456...'
+```
+
+✅ Done! The form will now send real emails to **labelparkcbe@gmail.com**
+
+> **Before EmailJS is set up:** The form still works — it opens the user's email app with a pre-filled message as a fallback.
 
 ---
 
@@ -20,186 +93,64 @@ Official website for **Label Park**, Chennai's leading manufacturer and exporter
 
 ```
 labelpark-app/
-├── public/
-│   └── index.html              # HTML template
+├── public/index.html
 ├── src/
-│   ├── assets/
-│   │   └── images/             # All product & logo images
+│   ├── assets/images/       ← all product & logo images
 │   ├── components/
-│   │   ├── Navbar.jsx          # Fixed navbar with dropdown
-│   │   └── Footer.jsx          # 4-column footer
+│   │   ├── Navbar.jsx       ← fixed navbar, mobile hamburger, dropdown
+│   │   └── Footer.jsx       ← 4-column footer
 │   ├── hooks/
-│   │   └── useScrollReveal.js  # Intersection Observer scroll animations
+│   │   └── useScrollReveal.js  ← scroll animations
 │   ├── pages/
-│   │   ├── Home.jsx            # Landing page (Hero, About strip, Products, Stats, CTA)
-│   │   ├── About.jsx           # Company story, advantages, industries
-│   │   ├── Products.jsx        # Labels & stickers grid (8 products)
-│   │   ├── Printers.jsx        # Citizen & Postek printer catalog
-│   │   ├── Scanners.jsx        # TVS & Honeywell scanner pages
-│   │   ├── Services.jsx        # AMC & Technical Support details
-│   │   └── Contact.jsx         # Quote request form
-│   ├── App.jsx                 # Router + layout wrapper
-│   ├── index.js                # React entry point
-│   └── index.css               # Global styles, animations, variables
-├── package.json
-└── README.md
+│   │   ├── Home.jsx         ← landing page
+│   │   ├── About.jsx        ← company story
+│   │   ├── Products.jsx     ← labels & stickers
+│   │   ├── Printers.jsx     ← Citizen & Postek printers
+│   │   ├── Scanners.jsx     ← TVS & Honeywell scanners
+│   │   ├── Services.jsx     ← AMC & Technical support
+│   │   └── Contact.jsx      ← quote form → labelparkcbe@gmail.com
+│   ├── App.jsx              ← router
+│   ├── index.js             ← entry point
+│   └── index.css            ← all styles + animations + responsive
+└── package.json
 ```
 
 ---
 
-## ⚙️ Prerequisites
+## 📱 Responsive Breakpoints
 
-Make sure you have the following installed on your computer:
-
-### 1. Install Node.js
-Download and install from: **https://nodejs.org**
-- Choose **LTS version** (recommended)
-- Minimum version required: **Node.js 14+**
-
-To verify installation, open a terminal and run:
-```bash
-node --version   # should show v14.x.x or higher
-npm --version    # should show 6.x.x or higher
-```
+| Screen | Layout |
+|--------|--------|
+| Desktop (>1200px) | Full 3–4 column grids |
+| Tablet (900–1200px) | 2-column grids |
+| Mobile (640–900px) | Single column, hamburger menu |
+| Small (< 640px) | Compact layout, stacked buttons |
 
 ---
 
-## 🚀 How to Run the Website
+## 🏗️ Build for Production
 
-### Step 1 — Unzip the project
-Extract the downloaded zip file to a folder on your computer.
-
-### Step 2 — Open terminal / command prompt
-- **Windows**: Press `Win + R`, type `cmd`, press Enter
-- **Mac**: Press `Cmd + Space`, type `Terminal`, press Enter
-- **VS Code**: Open the folder in VS Code, then press `` Ctrl + ` `` to open the terminal
-
-### Step 3 — Navigate to the project folder
-```bash
-cd path/to/labelpark-app
-```
-Example:
-```bash
-cd C:\Users\YourName\Downloads\labelpark-app     # Windows
-cd /Users/YourName/Downloads/labelpark-app       # Mac/Linux
-```
-
-### Step 4 — Install dependencies
-```bash
-npm install
-```
-> This downloads React and all required packages. It may take 1-3 minutes. You'll see a `node_modules/` folder created.
-
-### Step 5 — Start the development server
-```bash
-npm start
-```
-> This will automatically open your browser at **http://localhost:3000**
-> The website will **hot-reload** — any changes you make will instantly appear without refreshing.
-
----
-
-## 🏗️ Build for Production (Deploy)
-
-To create an optimized production build:
 ```bash
 npm run build
 ```
-This generates a `build/` folder with all optimized files ready to upload to any web hosting provider (Hostinger, GoDaddy, Netlify, Vercel, etc.).
+Creates optimized `build/` folder → upload to any web host.
 
-### Deploy to Netlify (Free)
-1. Run `npm run build`
-2. Go to **https://netlify.com** → Sign up free
-3. Drag & drop the `build/` folder onto the Netlify dashboard
-4. Your website is live instantly with a free URL!
-
-### Deploy to Vercel (Free)
-1. Install Vercel CLI: `npm install -g vercel`
-2. Run: `vercel` in the project folder
-3. Follow the prompts — website goes live automatically!
+### Deploy FREE on Netlify
+1. `npm run build`
+2. Go to https://app.netlify.com → drag & drop the `build/` folder
+3. Site goes live instantly with a free HTTPS URL!
 
 ---
 
-## 🎨 Pages & Routes
+## 🛠️ Common Issues
 
-| Route | Page | Description |
-|-------|------|-------------|
-| `/` | Home | Landing page with hero, featured products, stats, CTA |
-| `/about` | About | Company story, advantages, industries served |
-| `/products` | Products | All 8 label & sticker products |
-| `/printers` | Printers | Citizen & Postek barcode printer catalog |
-| `/scanners` | Scanners | TVS & Honeywell barcode scanners |
-| `/services` | Services | AMC & Technical Support |
-| `/contact` | Contact | Quote request form |
-
----
-
-## ✨ Animation Features
-
-| Animation | Where Used |
-|-----------|-----------|
-| `fadeUp` | Hero headline, badges, buttons |
-| `barcode-bg` | Hero & CTA — animated scrolling barcode lines |
-| `float` | Hero decorative rings |
-| `pulse-ring` | Hero live indicator dots |
-| `counter` | Stats section — animated number counting |
-| `scroll reveal` | All cards, sections (Intersection Observer) |
-| `hover lift` | All product cards, printer cards |
-| `image zoom` | Product image hover zoom |
-| `dropdown` | Navbar Products dropdown with arrow rotation |
-| `page fade` | Every page transition |
-
----
-
-## 🎨 Customization
-
-### Change Colors
-Edit `src/index.css` — update CSS variables at the top:
-```css
-:root {
-  --green:        #1b9e2d;   /* Main brand green */
-  --green-dark:   #0e6b1b;   /* Darker green */
-  --green-accent: #3dd958;   /* Bright accent green */
-}
-```
-
-### Add/Edit Products
-Edit `src/pages/Products.jsx` — update the `labels` array.
-
-### Update Company Info
-Edit `src/pages/Contact.jsx` — update address, email, phone.
-
-### Replace Logo
-Replace `src/assets/images/logo.png` with your updated logo file.
-
----
-
-## 🆘 Common Issues
-
-**`npm install` fails?**
 ```bash
+# If npm install fails:
 npm install --legacy-peer-deps
+
+# If port 3000 is busy:
+PORT=3001 npm start
+
+# If node_modules is broken:
+rm -rf node_modules && npm install
 ```
-
-**Port 3000 already in use?**
-```bash
-npm start -- --port 3001
-```
-Or set environment variable: `PORT=3001 npm start`
-
-**`node_modules` errors?**
-Delete the folder and reinstall:
-```bash
-rm -rf node_modules
-npm install
-```
-
----
-
-## 📞 Support
-
-For any issues or customizations, contact the development team.
-
----
-
-*Built with ❤️ for Label Park, Chennai*
