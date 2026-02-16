@@ -56,10 +56,10 @@ export default function Home() {
             {/* Badge */}
             <div style={{ display:'inline-flex', alignItems:'center', gap:10, background:'rgba(255,255,255,0.12)', border:'1px solid rgba(255,255,255,0.25)', borderRadius:32, padding:'8px 20px', marginBottom:26, backdropFilter:'blur(8px)' }}>
               <span style={{ width:8, height:8, borderRadius:'50%', background:'#3dd958', display:'inline-block', boxShadow:'0 0 8px #3dd958' }} />
-              <span style={{ fontSize:'clamp(10px,1.2vw,12px)', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase', color:'rgba(255,255,255,0.9)' }}>Tiruppur Leading Label Manufacturer</span>
+              <span style={{ fontSize:'clamp(10px,1.2vw,12px)', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase', color:'rgba(255, 255, 255, 0.9)' }}>Tiruppur Leading Label Manufacturer</span>
             </div>
 
-            <h1 style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(48px,9vw,108px)', fontWeight:900, lineHeight:.9, color:'#fff', textTransform:'uppercase', letterSpacing:'-2px', marginBottom:22, animation:'fadeUp .7s ease both' }}>
+            <h1 style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(48px,9vw,108px)', fontWeight:900, lineHeight:.9, color:'#ffffff', textTransform:'uppercase', letterSpacing:'-2px', marginBottom:22, animation:'fadeUp .7s ease both' }}>
               Precision<br />
               <span style={{ color:'rgba(255,255,255,0.3)' }}>Labels &</span><br />
               Auto ID<br />
@@ -184,7 +184,7 @@ export default function Home() {
             {industries.map(([icon,label]) => (
               <div key={label} className="industry-item">
                 <div style={{ fontSize:'clamp(22px,3vw,32px)', marginBottom:8 }}>{icon}</div>
-                <div style={{ fontSize:'clamp(9px,1vw,11px)', fontWeight:700, letterSpacing:'.5px', textTransform:'uppercase', color:'#fff' }}>{label}</div>
+                <div style={{ fontSize:'clamp(9px,1vw,11px)', fontWeight:700, letterSpacing:'.5px', textTransform:'uppercase', color:'#000000' }}>{label}</div>
               </div>
             ))}
           </div>
