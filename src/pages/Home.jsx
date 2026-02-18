@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
-import barcodeImg     from '../assets/images/barcode_plain.jpg';
-import holographicImg from '../assets/images/holographic.jpg';
-import jewelryImg     from '../assets/images/jewelry.jpg';
-import ribbonImg      from '../assets/images/ribbon.jpg';
+import barcodestickerImg from "../assets/images/barcodesticker.jpg";
+import holographiclabelImg from "../assets/images/holographiclabel.jpg";
+import jeweleylabelImg from "../assets/images/jeweleylabel.jpg";
+import therminalribb0onImg from "../assets/images/therminalribb0on.jpg";
 
 function Counter({ target, suffix='' }) {
   const [n, setN] = useState(0);
@@ -29,10 +29,10 @@ export default function Home() {
   useScrollReveal();
 
   const featured = [
-    { img:barcodeImg,     name:'Barcode Stickers',       tag:'Auto ID'     },
-    { img:holographicImg, name:'Holographic Labels',      tag:'Premium'     },
-    { img:jewelryImg,     name:'Jewelry Labels',          tag:'Precision'   },
-    { img:ribbonImg,      name:'Thermal Ribbon',          tag:'Consumables' },
+    { img: barcodestickerImg, name: "Barcode Stickers", tag: "Auto ID" },
+    { img: holographiclabelImg, name: "Holographic Labels", tag: "Premium" },
+    { img: jeweleylabelImg, name: "Jewelry Labels", tag: "Precision" },
+    { img: therminalribb0onImg, name: "Thermal Ribbon", tag: "Consumables" },
   ];
 
   const industries = [['👗','Garments'],['🍺','Breweries'],['💄','Cosmetics'],['🍽️','Food & Bev'],['💊','Pharma'],['🚗','Automotive'],['🏭','Mfg.'],['🛒','Retail']];

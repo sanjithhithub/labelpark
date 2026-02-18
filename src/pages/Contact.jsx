@@ -54,6 +54,11 @@ const CONTACT_INFO = [
     label: "We Supply",
     val: "Labels · Printers · Scanners · Ribbons · AMC",
   },
+  {
+    icon: "📞",
+    label: "Phone",
+    val: "+91 98420 55555\n+91 6369365028"
+  },
 ];
 
 const EMPTY = {

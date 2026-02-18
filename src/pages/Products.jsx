@@ -1,24 +1,64 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
-import barcodeImg       from '../assets/images/barcode_plain.jpg';
-import multicolorBcImg  from '../assets/images/multicolor_barcode.jpg';
+import barcodestickerImg from "../assets/images/barcodesticker.jpg";
+import muticolorbarcodeImg from "../assets/images/muticolorbarcode.jpg";
 import multicolorStkImg from '../assets/images/multicolor_sticker.jpg';
-import syntheticImg     from '../assets/images/synthetic.jpg';
-import jewelryImg       from '../assets/images/jewelry.jpg';
-import holographicImg   from '../assets/images/holographic.jpg';
-import laminatedImg     from '../assets/images/laminated.jpg';
-import ribbonImg        from '../assets/images/ribbon.jpg';
+import syntheticlabelImg from '../assets/images/syntheticlabel.jpg';
+import jeweleylabelImg from "../assets/images/jeweleylabel.jpg";
+import holographiclabelImg from "../assets/images/holographiclabel.jpg";
+import laminatedlabelImg from "../assets/images/laminatedlabel.jpg";
+import therminalribb0onImg from "../assets/images/therminalribb0on.jpg";
 
 const labels = [
-  { img:barcodeImg,      name:'Barcode Stickers – Plain',       tag:'Auto ID',     desc:'High-quality plain barcode stickers for inventory management, logistics, and retail. Available in all standard 1D/2D barcode formats and custom sizes.' },
-  { img:multicolorBcImg, name:'Multicolor Barcode Stickers',    tag:'Printed',     desc:'Vibrant full-color barcode labels combining visual appeal with reliable scanning accuracy. Perfect for retail shelves and consumer goods.' },
-  { img:multicolorStkImg,name:'Multicolor Stickers',            tag:'Branding',    desc:'High-resolution multicolor stickers for brand promotion, product identification, and marketing materials in any shape or size.' },
-  { img:syntheticImg,    name:'Synthetic Labels',               tag:'Durable',     desc:'Water-resistant synthetic labels engineered for harsh environments with excellent tear resistance, chemical resistance and longevity.' },
-  { img:jewelryImg,      name:'Jewelry Labels',                 tag:'Precision',   desc:'Precision-crafted small-format labels for jewelry tagging. Clear, elegant, and scannable even in the smallest miniature sizes.' },
-  { img:holographicImg,  name:'Holographic Hot Stamped Labels', tag:'Premium',     desc:'Premium holographic stickers with hot foil stamping for luxury products, brand security, and anti-counterfeiting applications.' },
-  { img:laminatedImg,    name:'Laminated Labels',               tag:'Protected',   desc:'Protective laminated stickers delivering maximum durability — resistant to scratches, moisture, UV fading and chemicals.' },
-  { img:ribbonImg,       name:'Thermal Transfer Ribbon',        tag:'Consumables', desc:'Wax, Wax-Resin & Full Resin TTR ribbons compatible with all major barcode printer brands. Available in all widths and lengths.' },
+  {
+    img: barcodestickerImg,
+    name: "Barcode Stickers – Plain",
+    tag: "Auto ID",
+    desc: "High-quality plain barcode stickers for inventory management, logistics, and retail. Available in all standard 1D/2D barcode formats and custom sizes.",
+  },
+  {
+    img: muticolorbarcodeImg,
+    name: "Multicolor Barcode Stickers",
+    tag: "Printed",
+    desc: "Vibrant full-color barcode labels combining visual appeal with reliable scanning accuracy. Perfect for retail shelves and consumer goods.",
+  },
+  {
+    img: multicolorStkImg,
+    name: "Multicolor Stickers",
+    tag: "Branding",
+    desc: "High-resolution multicolor stickers for brand promotion, product identification, and marketing materials in any shape or size.",
+  },
+  {
+    img: syntheticlabelImg,
+    name: "Synthetic Labels",
+    tag: "Durable",
+    desc: "Water-resistant synthetic labels engineered for harsh environments with excellent tear resistance, chemical resistance and longevity.",
+  },
+  {
+    img: jeweleylabelImg,
+    name: "Jewelry Labels",
+    tag: "Precision",
+    desc: "Precision-crafted small-format labels for jewelry tagging. Clear, elegant, and scannable even in the smallest miniature sizes.",
+  },
+  {
+    img: holographiclabelImg,
+    name: "Holographic Hot Stamped Labels",
+    tag: "Premium",
+    desc: "Premium holographic stickers with hot foil stamping for luxury products, brand security, and anti-counterfeiting applications.",
+  },
+  {
+    img: laminatedlabelImg,
+    name: "Laminated Labels",
+    tag: "Protected",
+    desc: "Protective laminated stickers delivering maximum durability — resistant to scratches, moisture, UV fading and chemicals.",
+  },
+  {
+    img: therminalribb0onImg,
+    name: "Thermal Transfer Ribbon",
+    tag: "Consumables",
+    desc: "Wax, Wax-Resin & Full Resin TTR ribbons compatible with all major barcode printer brands. Available in all widths and lengths.",
+  },
 ];
 
 const tagColors = {
