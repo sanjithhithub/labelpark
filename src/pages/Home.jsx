@@ -193,12 +193,12 @@ export default function Home() {
   return (
     <div className="page-enter">
       {/* ══════════════════════════════════════════════════════
-          HERO SECTION WITH SLIDING BANNER (Increased Size)
+          HERO SECTION WITH SLIDING BANNER
       ══════════════════════════════════════════════════════ */}
       <section
         style={{
           marginTop: "var(--nav-h,82px)",
-          minHeight: "110vh", // Increased from 92vh
+          minHeight: "110vh",
           background:
             "linear-gradient(135deg,#04200a 0%,#083d10 22%,#0e6b1b 52%,#1b9e2d 75%,#2ec94a 100%)",
           display: "grid",
@@ -214,6 +214,14 @@ export default function Home() {
               grid-template-columns: 1fr !important;
               min-height: auto !important;
             }
+            .hero-left-content {
+              padding-top: 40px !important;
+              padding-bottom: 20px !important;
+            }
+            .banner-container-mobile {
+              height: 350px !important;
+              margin-bottom: 120px !important;
+            }
           }
         `}</style>
         <div
@@ -225,6 +233,7 @@ export default function Home() {
             LEFT SIDE — Text Content
         ════════════════════ */}
         <div
+          className="hero-left-content"
           style={{
             position: "relative",
             zIndex: 2,
@@ -336,7 +345,7 @@ export default function Home() {
         </div>
 
         {/* ════════════════════
-            RIGHT SIDE — Sliding Banner (Increased Size)
+            RIGHT SIDE — Sliding Banner
         ════════════════════ */}
         <div
           style={{
@@ -345,7 +354,7 @@ export default function Home() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "clamp(10px,1vw,20px) clamp(10px,2vw,20px)", // Tighter padding to allow more growth
+            padding: "clamp(10px,1vw,20px) clamp(10px,2vw,20px)",
           }}
         >
           <div
@@ -373,12 +382,13 @@ export default function Home() {
           />
 
           <div
+            className="banner-container-mobile"
             style={{
               position: "relative",
               width: "100%",
-              height: "96%", // Increased height inside the container
-              maxWidth: "1100px", // Increased max width
-              maxHeight: "900px", // Increased max height
+              height: "96%",
+              maxWidth: "1100px",
+              maxHeight: "900px",
               borderRadius: "20px",
               overflow: "hidden",
               boxShadow:
