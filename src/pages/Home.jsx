@@ -193,12 +193,12 @@ export default function Home() {
   return (
     <div className="page-enter">
       {/* ══════════════════════════════════════════════════════
-          HERO SECTION WITH SLIDING BANNER
+          HERO SECTION WITH SLIDING BANNER (Increased Size)
       ══════════════════════════════════════════════════════ */}
       <section
         style={{
           marginTop: "var(--nav-h,82px)",
-          minHeight: "92vh",
+          minHeight: "110vh", // Increased from 92vh
           background:
             "linear-gradient(135deg,#04200a 0%,#083d10 22%,#0e6b1b 52%,#1b9e2d 75%,#2ec94a 100%)",
           display: "grid",
@@ -336,7 +336,7 @@ export default function Home() {
         </div>
 
         {/* ════════════════════
-            RIGHT SIDE — Sliding Banner
+            RIGHT SIDE — Sliding Banner (Increased Size)
         ════════════════════ */}
         <div
           style={{
@@ -345,7 +345,7 @@ export default function Home() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: "clamp(20px,3vw,40px) clamp(30px,4vw,60px)",
+            padding: "clamp(10px,1vw,20px) clamp(10px,2vw,20px)", // Tighter padding to allow more growth
           }}
         >
           <div
@@ -363,8 +363,8 @@ export default function Home() {
           <div
             style={{
               position: "absolute",
-              width: "60%",
-              height: "60%",
+              width: "80%",
+              height: "80%",
               background:
                 "radial-gradient(circle, rgba(61,217,88,0.15) 0%, transparent 70%)",
               filter: "blur(60px)",
@@ -375,10 +375,10 @@ export default function Home() {
           <div
             style={{
               position: "relative",
-              width: "90%",
-              height: "88%",
-              maxWidth: "800px",
-              maxHeight: "650px",
+              width: "100%",
+              height: "96%", // Increased height inside the container
+              maxWidth: "1100px", // Increased max width
+              maxHeight: "900px", // Increased max height
               borderRadius: "20px",
               overflow: "hidden",
               boxShadow:
