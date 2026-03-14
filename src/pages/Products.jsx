@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
-import barcodestickerImg from "../assets/images/barcodesticker.jpg";
-import muticolorbarcodeImg from "../assets/images/muticolorbarcode.jpg";
+import labelpainImg from "../assets/images/labelpain.jpg";
+import Picture1Img from "../assets/images/Picture1.jpg";
 import multicolorStkImg from '../assets/images/multicolor_sticker.jpg';
 import syntheticlabelImg from '../assets/images/syntheticlabel.jpg';
 import jeweleylabelImg from "../assets/images/jeweleylabel.jpg";
 import holographiclabelImg from "../assets/images/holographiclabel.jpg";
 import laminatedlabelImg from "../assets/images/laminatedlabel.jpg";
-import therminalribb0onImg from "../assets/images/therminalribb0on.jpg";
+import RibbonlabelImg from "../assets/images/Ribbonlabel.jpg";
 
 const labels = [
   {
-    img: barcodestickerImg,
+    img: labelpainImg,
     name: "Barcode Stickers – Plain",
     tag: "Auto ID",
     desc: "High-quality plain barcode stickers for inventory management, logistics, and retail. Available in all standard 1D/2D barcode formats and custom sizes.",
   },
   {
-    img: muticolorbarcodeImg,
+    img: Picture1Img,
     name: "Multicolor Barcode Stickers",
     tag: "Printed",
     desc: "Vibrant full-color barcode labels combining visual appeal with reliable scanning accuracy. Perfect for retail shelves and consumer goods.",
@@ -54,8 +54,8 @@ const labels = [
     desc: "Protective laminated stickers delivering maximum durability — resistant to scratches, moisture, UV fading and chemicals.",
   },
   {
-    img: therminalribb0onImg,
-    name: "Thermal Transfer Ribbon",
+    img: RibbonlabelImg,
+    name: "Thermal Ribbon",
     tag: "Consumables",
     desc: "Wax, Wax-Resin & Full Resin TTR ribbons compatible with all major barcode printer brands. Available in all widths and lengths.",
   },

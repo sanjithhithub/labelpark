@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/images/logo.png';
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/images/logo.png";
 
 const NAV = [
-  { label:'Home',     to:'/' },
-  { label:'About',    to:'/about' },
-  { label:'Services', to:'/services' },
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
 ];
 const PRODUCTS = [
-  { label:'Labels & Stickers', to:'/products' },
-  { label:'Barcode Printers',  to:'/printers' },
-  { label:'Barcode Scanners',  to:'/scanners' },
+  { label: "Labels & Stickers", to: "/products" },
+  { label: "Barcode Printers", to: "/printers" },
+  { label: "Barcode Scanners", to: "/scanners" },
+  { label: "online-cover", to: "/onlinecover" },
 ];
 
 export default function Navbar() {
@@ -22,19 +23,25 @@ export default function Navbar() {
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', h);
-    return () => window.removeEventListener('scroll', h);
+    window.addEventListener("scroll", h);
+    return () => window.removeEventListener("scroll", h);
   }, []);
-
-  useEffect(() => { setMobileOpen(false); setDropOpen(false); }, [pathname]);
 
   useEffect(() => {
-    const h = e => { if (dropRef.current && !dropRef.current.contains(e.target)) setDropOpen(false); };
-    document.addEventListener('mousedown', h);
-    return () => document.removeEventListener('mousedown', h);
+    setMobileOpen(false);
+    setDropOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const h = (e) => {
+      if (dropRef.current && !dropRef.current.contains(e.target))
+        setDropOpen(false);
+    };
+    document.addEventListener("mousedown", h);
+    return () => document.removeEventListener("mousedown", h);
   }, []);
 
-  const isProduct = ['/products','/printers','/scanners'].includes(pathname);
+  const isProduct = ["/products", "/printers", "/scanners"].includes(pathname);
 
   return (
     <>
@@ -329,10 +336,37 @@ export default function Navbar() {
 function DeskLink({ to, active, children }) {
   const [hov, setHov] = useState(false);
   return (
-    <Link to={to} style={{ fontWeight:700, fontSize:13, letterSpacing:'.5px', textTransform:'uppercase', color:active||hov?'#1b9e2d':'#222', position:'relative', padding:'4px 0', display:'inline-block', transition:'color .2s' }}
-      onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}>
+    <Link
+      to={to}
+      style={{
+        fontWeight: 700,
+        fontSize: 13,
+        letterSpacing: ".5px",
+        textTransform: "uppercase",
+        color: active || hov ? "#1b9e2d" : "#222",
+        position: "relative",
+        padding: "4px 0",
+        display: "inline-block",
+        transition: "color .2s",
+      }}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+    >
       {children}
-      <span style={{ position:'absolute', bottom:-2, left:0, right:0, height:2, background:'#1b9e2d', borderRadius:2, transform:active||hov?'scaleX(1)':'scaleX(0)', transformOrigin:'left', transition:'transform .25s ease' }} />
+      <span
+        style={{
+          position: "absolute",
+          bottom: -2,
+          left: 0,
+          right: 0,
+          height: 2,
+          background: "#1b9e2d",
+          borderRadius: 2,
+          transform: active || hov ? "scaleX(1)" : "scaleX(0)",
+          transformOrigin: "left",
+          transition: "transform .25s ease",
+        }}
+      />
     </Link>
   );
 }

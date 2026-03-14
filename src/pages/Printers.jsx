@@ -1,22 +1,89 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
-import citizen621Img  from '../assets/images/citizen_621.jpg';
-import citizen631Img  from '../assets/images/citizen_631.jpg';
+import citizen621Img from '../assets/images/citizen_621.jpg';
+import print2Img from "../assets/images/print2.jpg";
+import citizen_631Img from "../assets/images/citizen_631.jpg";
 import postekEM210Img from '../assets/images/postek_em210.jpg';
-import postekC168Img  from '../assets/images/postek_c168.jpg';
-import postekG2000Img from '../assets/images/postek_g2000.jpg';
+import postek_g2000Img from "../assets/images/postek_g2000.jpg";
+import postek_c168Img from "../assets/images/postek_c168.jpg";
 
 const citizen = [
-  { model:'CL-S621',      img:citizen621Img,  desc:'The powerful CL-S621 offers unparalleled versatility in the desktop thermal printer class. Able to print in both direct thermal and thermal transfer mode.', features:['Direct thermal & thermal transfer mode','360-meter ribbon for greater productivity','Unique metal Hi-Lift™ mechanism','Easy media and ribbon loading','Reduced downtime design'] },
-  { model:'CL-S631',      img:citizen631Img,  desc:'The powerful CL-S631 provides users with unparalleled features. Crisp 300 dpi printing for images or fine text and an unprecedented 360-meter ribbon.', features:['Crisp 300 dpi print resolution','360-meter ribbon capacity','High-performance desktop design','Reduced downtime & productivity boost','Professional image & text quality'] },
-  { model:'CL-S700 Series',img:citizen621Img, desc:'Built with durability and ease of access in mind, featuring a large programmable front LCD control panel and revolutionary Cross-Emulation™ board.', features:['Large programmable front LCD panel','Revolutionary Cross-Emulation™ board','Datamax® to Zebra® emulation switch','Designed for years of service','Industrial-grade durability'] },
+  {
+    model: "CL-S621",
+    img: citizen621Img,
+    desc: "The powerful CL-S621 offers unparalleled versatility in the desktop thermal printer class. Able to print in both direct thermal and thermal transfer mode.",
+    features: [
+      "Direct thermal & thermal transfer mode",
+      "360-meter ribbon for greater productivity",
+      "Unique metal Hi-Lift™ mechanism",
+      "Easy media and ribbon loading",
+      "Reduced downtime design",
+    ],
+  },
+  {
+    model: "CL-S631",
+    img: print2Img,
+    desc: "The powerful CL-S631 provides users with unparalleled features. Crisp 300 dpi printing for images or fine text and an unprecedented 360-meter ribbon.",
+    features: [
+      "Crisp 300 dpi print resolution",
+      "360-meter ribbon capacity",
+      "High-performance desktop design",
+      "Reduced downtime & productivity boost",
+      "Professional image & text quality",
+    ],
+  },
+  {
+    model: "CL-S700 Series",
+    img: citizen_631Img,
+    desc: "Built with durability and ease of access in mind, featuring a large programmable front LCD control panel and revolutionary Cross-Emulation™ board.",
+    features: [
+      "Large programmable front LCD panel",
+      "Revolutionary Cross-Emulation™ board",
+      "Datamax® to Zebra® emulation switch",
+      "Designed for years of service",
+      "Industrial-grade durability",
+    ],
+  },
 ];
 
 const postek = [
-  { model:'EM210',    img:postekEM210Img, desc:'Designed with the full user-experience in mind. The EM series broke the stereotype with the built-in exterior media stand, perfect for high-volume applications.', features:['Built-in exterior media stand','Wi-Fi, Bluetooth & RFID support','Left & Right structure for easy use','Durable printhead, industrial grade','High-volume printing optimised'] },
-  { model:'C168/200s',img:postekC168Img,  desc:'Compact, affordable, endurance performance. Rigid structure plus the highly reliable motor and transmission system result in minimal down time and low service cost.', features:['Compact affordable design','Rigid structure, reliable motor','360 ribbon capacity — no frequent reload','Reflective & transmissive media sensors','Low maintenance & service cost'] },
-  { model:'G2000',    img:postekG2000Img, desc:'Small and lightweight with the stamina of a metal industrial printer. Revolutionary one-piece frame ensures stability and durability for 24/7 operation.', features:['One-piece frame stability & durability','Convective Heat Transfer — stable 24/7','Single spring TPH — no ribbon wrinkling','Easy platen roller access & cleaning','Industrial-grade components'] },
+  {
+    model: "EM210",
+    img: postekEM210Img,
+    desc: "Designed with the full user-experience in mind. The EM series broke the stereotype with the built-in exterior media stand, perfect for high-volume applications.",
+    features: [
+      "Built-in exterior media stand",
+      "Wi-Fi, Bluetooth & RFID support",
+      "Left & Right structure for easy use",
+      "Durable printhead, industrial grade",
+      "High-volume printing optimised",
+    ],
+  },
+  {
+    model: "C168/200s",
+    img: postek_g2000Img,
+    desc: "Compact, affordable, endurance performance. Rigid structure plus the highly reliable motor and transmission system result in minimal down time and low service cost.",
+    features: [
+      "Compact affordable design",
+      "Rigid structure, reliable motor",
+      "360 ribbon capacity — no frequent reload",
+      "Reflective & transmissive media sensors",
+      "Low maintenance & service cost",
+    ],
+  },
+  {
+    model: "G2000",
+    img: postek_c168Img,
+    desc: "Small and lightweight with the stamina of a metal industrial printer. Revolutionary one-piece frame ensures stability and durability for 24/7 operation.",
+    features: [
+      "One-piece frame stability & durability",
+      "Convective Heat Transfer — stable 24/7",
+      "Single spring TPH — no ribbon wrinkling",
+      "Easy platen roller access & cleaning",
+      "Industrial-grade components",
+    ],
+  },
 ];
 
 function PrinterBrand({ brand, color, printers }) {

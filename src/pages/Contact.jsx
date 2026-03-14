@@ -31,12 +31,12 @@ const CONTACT_INFO = [
     val: (
       <>
         <a
-          href="https://www.google.com/maps/place/11.1271203,77.3515822"
+          href="https://www.google.com/maps/place/11%C2%B007'37.6%22N+77%C2%B021'05.7%22E/@11.1270617,77.3516776,54m/data=!3m1!1e3!4m4!3m3!8m2!3d11.1271111!4d77.3515833?hl=en&entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: "#1b9e2d", textDecoration: "none" }}
         >
-          30, 3rd St, MS Nagar, Tiruppur, Tamil Nadu 641607
+          26/27,selvaraja nagar,tnk puram north,kongu main road,tirupur-641 607.
         </a>
         <br />
         South India's Leading Retail & Auto ID Solution Provider
@@ -57,7 +57,7 @@ const CONTACT_INFO = [
   {
     icon: "📞",
     label: "Phone",
-    val: "+91 98420 55555\n+91 6369365028"
+    val: "+91 98420 55555\n+91 6369365028",
   },
 ];
 
