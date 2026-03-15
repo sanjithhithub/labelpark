@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import useScrollReveal from "../hooks/useScrollReveal";
 
-const SERVICE_ID = "service_jbopl8b";
-const TEMPLATE_ID = "template_rcirjbi";
-const PUBLIC_KEY = "xzd_ROEHQIjkcwrA6";
-const TO_EMAIL = "labelparkcbe@gmail.com";
+// Updated to use environment variables
+const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+const TO_EMAIL = process.env.REACT_APP_EMAILJS_TO_EMAIL;
 
 const PRODUCTS = [
   "Barcode Stickers – Plain",
@@ -43,7 +44,7 @@ const CONTACT_INFO = [
       </>
     ),
   },
-  { icon: "✉️", label: "Email", val: "labelparkcbe@gmail.com" },
+  { icon: "✉️", label: "Email", val: TO_EMAIL }, // Using the variable here too
   {
     icon: "🕐",
     label: "Working Hours",
@@ -82,7 +83,6 @@ export default function Contact() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFields((f) => ({ ...f, [name]: value }));
-    // clear error on typing
     if (errors[name]) setErrors((er) => ({ ...er, [name]: "" }));
   };
 
@@ -104,7 +104,6 @@ export default function Contact() {
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
-      // scroll to first error
       const first = formRef.current?.querySelector(".field-error");
       first?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
@@ -276,7 +275,6 @@ export default function Contact() {
                 </div>
               ))}
 
-              {/* decorative barcode */}
               <div
                 style={{
                   marginTop: 32,
@@ -373,7 +371,6 @@ export default function Contact() {
                     Request a Quote
                   </h3>
 
-                  {/* Row 1 */}
                   <div
                     className="form-2col"
                     style={{
@@ -410,7 +407,6 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {/* Row 2 */}
                   <div
                     className="form-2col"
                     style={{
@@ -447,7 +443,6 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {/* Product */}
                   <div className="form-group">
                     <label>Product / Service Interest</label>
                     <select
@@ -464,7 +459,6 @@ export default function Contact() {
                     </select>
                   </div>
 
-                  {/* Message */}
                   <div className="form-group">
                     <label>Message / Requirements *</label>
                     <textarea
