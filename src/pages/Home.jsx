@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useScrollReveal from "../hooks/useScrollReveal";
 import labelpainImg from "../assets/images/labelpain.jpg";
-import holographiclabelImg from "../assets/images/holographiclabel.jpg";
-import jeweleylabelImg from "../assets/images/jeweleylabel.jpg";
-import RibbonlabelImg from "../assets/images/Ribbonlabel.jpg";
+import printerhomeImg from "../assets/images/printerhome.jpg";
+import barcodescannerImg from "../assets/images/barcodescanner.jpg";
+import onlinecoverImg from "../assets/images/onlinecover.jpg";
 
 /* ── Hero images for sliding banner ─────────────────────── */
 import factoryImg from "../assets/images/factory_floor.png";
 import barcodeImg from "../assets/images/barcode_labels.png";
+import bannerImg from "../assets/images/banner.jpg"; // NEW IMAGE ADDED HERE
 
 function Counter({ target, suffix = "" }) {
   const [n, setN] = useState(0);
@@ -171,10 +172,30 @@ export default function Home() {
   useScrollReveal();
 
   const featured = [
-    { img: labelpainImg, name: "Barcode Stickers", tag: "Auto ID" },
-    { img: holographiclabelImg, name: "Holographic Labels", tag: "Premium" },
-    { img: jeweleylabelImg, name: "Jewelry Labels", tag: "Precision" },
-    { img: RibbonlabelImg, name: "Thermal Ribbon", tag: "Consumables" },
+    {
+      img: labelpainImg,
+      name: "Labels & Stickers",
+      tag: "Manufacturing",
+      path: "/products",
+    },
+    {
+      img: printerhomeImg,
+      name: "Barcode Printers",
+      tag: "Hardware",
+      path: "/printers",
+    },
+    {
+      img: barcodescannerImg,
+      name: "Barcode Scanners",
+      tag: "Auto ID",
+      path: "/scanners",
+    },
+    {
+      img: onlinecoverImg,
+      name: "Online Cover",
+      tag: "Services",
+      path: "/onlinecover",
+    },
   ];
 
   const industries = [
@@ -188,13 +209,12 @@ export default function Home() {
     ["🛒", "Retail"],
   ];
 
-  const heroImages = [factoryImg, barcodeImg];
+  // UPDATED ARRAY: Now includes bannerImg as the third image
+  const heroImages = [factoryImg, barcodeImg, bannerImg];
 
   return (
     <div className="page-enter">
-      {/* ══════════════════════════════════════════════════════
-          HERO SECTION WITH SLIDING BANNER
-      ══════════════════════════════════════════════════════ */}
+      {/* HERO SECTION */}
       <section
         style={{
           marginTop: "var(--nav-h,82px)",
@@ -229,9 +249,6 @@ export default function Home() {
           style={{ position: "absolute", inset: 0 }}
         />
 
-        {/* ════════════════════
-            LEFT SIDE — Text Content
-        ════════════════════ */}
         <div
           className="hero-left-content"
           style={{
@@ -344,9 +361,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ════════════════════
-            RIGHT SIDE — Sliding Banner
-        ════════════════════ */}
         <div
           style={{
             position: "relative",
@@ -410,12 +424,10 @@ export default function Home() {
                 zIndex: 10,
               }}
             />
-
             <SlidingBanner images={heroImages} />
           </div>
         </div>
 
-        {/* ── Stats Bar at Bottom ────────────────────────── */}
         <div
           style={{
             position: "absolute",
@@ -479,9 +491,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          WHO WE ARE SECTION
-      ══════════════════════════════════════════════════════ */}
+      {/* WHO WE ARE SECTION */}
       <section className="lp-section" style={{ background: "#fff" }}>
         <div className="lp-container">
           <div className="lp-grid-2" style={{ alignItems: "center" }}>
@@ -508,18 +518,6 @@ export default function Home() {
                 self-adhesive labels. Incorporated in Chennai, we are the
                 leading <strong>Retail & Auto ID Solution</strong> provider in
                 South India.
-              </p>
-              <p
-                style={{
-                  fontSize: "clamp(14px,1.5vw,16px)",
-                  lineHeight: 1.88,
-                  color: "#555",
-                  marginBottom: 30,
-                }}
-              >
-                For over a decade, we listen closely to our customers to provide
-                the most cost-effective solutions — from custom labels to
-                printers, scanners and ribbons.
               </p>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <Link to="/about">
@@ -615,7 +613,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FEATURED PRODUCTS ─────────────────────────── */}
+      {/* CORE PRODUCTS */}
       <section className="lp-section" style={{ background: "#f4f4f2" }}>
         <div className="lp-container">
           <div
@@ -629,25 +627,29 @@ export default function Home() {
             }}
           >
             <div>
-              <div className="section-eyebrow reveal">Our Products</div>
+              <div className="section-eyebrow reveal">Our Categories</div>
               <h2
                 className="section-title reveal"
                 style={{ fontSize: "clamp(26px,4vw,56px)" }}
               >
-                Featured <span style={{ color: "#1b9e2d" }}>Products</span>
+                Our Core <span style={{ color: "#1b9e2d" }}>Products</span>
               </h2>
             </div>
             <Link to="/products" className="reveal">
-              <button className="btn-outline">View All →</button>
+              <button className="btn-outline">Explore More →</button>
             </Link>
           </div>
           <div className="lp-grid-4">
             {featured.map((p, i) => (
               <Link
                 key={p.name}
-                to="/products"
+                to={p.path}
                 className={`card reveal delay-${i + 1}`}
-                style={{ display: "block", color: "inherit" }}
+                style={{
+                  display: "block",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
               >
                 <div
                   style={{
@@ -710,7 +712,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS ─────────────────────────────────────── */}
+      {/* STATS SECTION */}
       <section
         className="lp-section"
         style={{
@@ -765,7 +767,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── INDUSTRIES ────────────────────────────────── */}
+      {/* INDUSTRIES */}
       <section className="lp-section" style={{ background: "#f4f4f2" }}>
         <div className="lp-container">
           <div style={{ textAlign: "center", marginBottom: 40 }}>
@@ -803,7 +805,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CTA BANNER ────────────────────────────────── */}
+      {/* CTA BANNER */}
       <section className="lp-section" style={{ background: "#fff" }}>
         <div className="lp-container">
           <div

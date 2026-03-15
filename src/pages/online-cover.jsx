@@ -7,7 +7,7 @@ import flipkartImg from "../assets/images/flipkart_cover.jpg";
 import myntraImg from "../assets/images/myntra_cover.webp";
 
 /* ─────────────────────────────────────────
-   Cover product data
+    Cover product data
 ───────────────────────────────────────── */
 const covers = [
   {
@@ -124,9 +124,6 @@ const covers = [
   },
 ];
 
-/* ─────────────────────────────────────────
-   Why Label Park capability cards
-───────────────────────────────────────── */
 const capabilities = [
   {
     icon: "🏭",
@@ -160,9 +157,6 @@ const capabilities = [
   },
 ];
 
-/* ─────────────────────────────────────────
-   COMPONENT
-───────────────────────────────────────── */
 export default function OnlineCover() {
   useScrollReveal();
   const [openBrand, setOpenBrand] = useState(null);
@@ -219,7 +213,6 @@ export default function OnlineCover() {
       {/* ══════════ ABOUT LABEL PARK ══════════ */}
       <section className="lp-section" style={{ background: "#fff" }}>
         <div className="lp-container">
-          {/* Heading */}
           <div
             style={{
               textAlign: "center",
@@ -249,7 +242,6 @@ export default function OnlineCover() {
             </p>
           </div>
 
-          {/* Two description boxes */}
           <div
             style={{
               display: "grid",
@@ -288,10 +280,7 @@ export default function OnlineCover() {
                 Label Park is a direct manufacturer based in Tiruppur, Tamil
                 Nadu — not a reseller or trading company. Our plant runs
                 in-house flexographic and gravure printing presses, precision
-                cutting and sealing machinery, and a dedicated QC team. This
-                means factory-direct pricing, faster lead times, and complete
-                control over print consistency and material quality for every
-                batch we dispatch to you.
+                cutting and sealing machinery, and a dedicated QC team.
               </p>
             </div>
 
@@ -322,17 +311,13 @@ export default function OnlineCover() {
                 }}
               >
                 Our online courier cover range is manufactured to the exact
-                material and print standards of each platform — AJIO's white
-                LDPE bag with returns panel, Amazon's all-over logo poly mailer,
-                Flipkart's transparent cover with POD sleeve, and Myntra's 100%
-                recyclable kraft paper bag. Small sellers ordering 500 pcs and
-                large distributors ordering 5 lakh pcs both receive the same
-                quality from our line.
+                material and print standards of each platform. Small sellers
+                ordering 500 pcs and large distributors ordering 5 lakh pcs both
+                receive the same quality.
               </p>
             </div>
           </div>
 
-          {/* Capability cards */}
           <div
             style={{
               display: "grid",
@@ -377,7 +362,6 @@ export default function OnlineCover() {
       {/* ══════════ COVER PRODUCTS ══════════ */}
       <section className="lp-section" style={{ background: "#f4f4f2" }}>
         <div className="lp-container">
-          {/* Heading */}
           <div
             style={{
               textAlign: "center",
@@ -397,22 +381,15 @@ export default function OnlineCover() {
                   '4 Platform Covers <span style="color:#0e6b1b">We Manufacture</span>',
               }}
             />
-            <p
-              className="section-sub"
-              style={{ color: "#555", maxWidth: 520, margin: "0 auto" }}
-            >
-              Click on any cover card to see full specifications, key features,
-              and pricing details.
-            </p>
           </div>
 
-          {/* Cover cards grid */}
           <div
             style={{
               display: "grid",
               gridTemplateColumns:
                 "repeat(auto-fill, minmax(min(280px,100%), 1fr))",
               gap: "clamp(14px,2vw,26px)",
+              alignItems: "start", // Crucial: prevents other cards from stretching when one expands
             }}
           >
             {covers.map((cv, i) => (
@@ -421,20 +398,19 @@ export default function OnlineCover() {
                 className={`card reveal delay-${(i % 4) + 1}`}
                 style={{
                   cursor: "pointer",
+                  height: "fit-content", // Ensures the card only takes required space
                   outline:
                     openBrand === cv.brand
                       ? `2px solid ${cv.accentColor}`
                       : "2px solid transparent",
-                  outlineOffset: 0,
-                  transition: "outline-color .25s",
+                  transition: "all .3s ease",
+                  overflow: "hidden",
                 }}
                 onClick={() => toggleBrand(cv.brand)}
               >
-                {/* ── Image area ── */}
                 <div
                   style={{
                     height: "clamp(200px,22vw,280px)",
-                    overflow: "hidden",
                     background: cv.accentBg,
                     position: "relative",
                     display: "flex",
@@ -444,22 +420,14 @@ export default function OnlineCover() {
                 >
                   <img
                     src={cv.img}
-                    alt={cv.brand + " courier bag"}
+                    alt={cv.brand}
                     style={{
                       width: "100%",
                       height: "100%",
                       objectFit: "contain",
                       padding: 16,
-                      transition: "transform .55s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.transform = "scale(1.06)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.transform = "scale(1)";
                     }}
                   />
-                  {/* Tag badge */}
                   <span
                     style={{
                       position: "absolute",
@@ -467,54 +435,21 @@ export default function OnlineCover() {
                       left: 12,
                       fontSize: 10,
                       fontWeight: 800,
-                      letterSpacing: "1px",
-                      textTransform: "uppercase",
-                      color: cv.tagColor,
                       background: cv.tagBg,
+                      color: cv.tagColor,
                       padding: "3px 10px",
                       borderRadius: 20,
                     }}
                   >
                     {cv.tag}
                   </span>
-                  {/* MOQ badge */}
-                  <span
-                    style={{
-                      position: "absolute",
-                      top: 12,
-                      right: 12,
-                      fontSize: 10,
-                      fontWeight: 800,
-                      color: "#fff",
-                      background: cv.accentColor,
-                      padding: "3px 10px",
-                      borderRadius: 20,
-                    }}
-                  >
-                    MOQ: {cv.specs.find((s) => s.label === "MOQ").value}
-                  </span>
-                  {/* Gradient overlay */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background:
-                        "linear-gradient(to top,rgba(0,0,0,0.12),transparent 60%)",
-                    }}
-                  />
                 </div>
 
-                {/* ── Text area ── */}
-                <div
-                  style={{
-                    padding:
-                      "clamp(14px,2vw,22px) clamp(16px,2vw,24px) clamp(14px,2vw,20px)",
-                  }}
-                >
+                <div style={{ padding: "20px" }}>
                   <h3
                     style={{
                       fontWeight: 800,
-                      fontSize: "clamp(17px,1.8vw,21px)",
+                      fontSize: "20px",
                       color: cv.accentColor,
                       marginBottom: 4,
                     }}
@@ -527,7 +462,6 @@ export default function OnlineCover() {
                       color: "#999",
                       fontWeight: 600,
                       textTransform: "uppercase",
-                      letterSpacing: "0.5px",
                       marginBottom: 12,
                     }}
                   >
@@ -535,50 +469,15 @@ export default function OnlineCover() {
                   </p>
                   <p
                     style={{
-                      fontSize: "clamp(12px,1.2vw,13.5px)",
+                      fontSize: "13px",
                       color: "#666",
-                      lineHeight: 1.68,
+                      lineHeight: 1.6,
                       marginBottom: 14,
                     }}
                   >
                     {cv.desc}
                   </p>
 
-                  {/* Feature chips */}
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 6,
-                      marginBottom: 14,
-                    }}
-                  >
-                    {cv.features.map((f) => (
-                      <span
-                        key={f}
-                        style={{
-                          fontSize: 11,
-                          fontWeight: 600,
-                          padding: "4px 10px",
-                          borderRadius: 20,
-                          background: cv.tagBg,
-                          color: cv.tagColor,
-                        }}
-                      >
-                        ✓ {f}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Used for */}
-                  <p
-                    style={{ fontSize: 11.5, color: "#888", marginBottom: 12 }}
-                  >
-                    <strong style={{ color: "#555" }}>Best for:</strong>{" "}
-                    {cv.usedFor}
-                  </p>
-
-                  {/* Expand toggle */}
                   <div
                     style={{
                       fontSize: 12,
@@ -595,16 +494,15 @@ export default function OnlineCover() {
                   </div>
                 </div>
 
-                {/* ── Expanded specs panel ── */}
+                {/* Conditional Specs - Only renders for the active card */}
                 {openBrand === cv.brand && (
                   <div
                     style={{
-                      borderTop: `2px solid ${cv.tagBg}`,
-                      padding: "clamp(16px,2vw,24px)",
+                      borderTop: `1px solid #eee`,
+                      padding: "20px",
                       background: cv.accentBg,
                     }}
                   >
-                    {/* Spec grid */}
                     <div
                       style={{
                         display: "grid",
@@ -618,26 +516,24 @@ export default function OnlineCover() {
                           key={sp.label}
                           style={{
                             background: "#fff",
-                            borderRadius: 10,
-                            padding: "10px 12px",
-                            border: "1.5px solid #efefef",
+                            borderRadius: 8,
+                            padding: "8px 10px",
+                            border: "1px solid #efefef",
                           }}
                         >
                           <div
                             style={{
                               fontSize: 9,
                               fontWeight: 700,
-                              letterSpacing: "0.8px",
-                              textTransform: "uppercase",
                               color: "#bbb",
-                              marginBottom: 3,
+                              textTransform: "uppercase",
                             }}
                           >
                             {sp.label}
                           </div>
                           <div
                             style={{
-                              fontSize: 12.5,
+                              fontSize: 12,
                               fontWeight: 700,
                               color: "#111",
                             }}
@@ -647,25 +543,20 @@ export default function OnlineCover() {
                         </div>
                       ))}
                     </div>
-
-                    {/* Quote button */}
                     <Link to="/contact">
                       <button
                         style={{
                           width: "100%",
-                          padding: "12px 0",
-                          borderRadius: 10,
+                          padding: "12px",
+                          borderRadius: 8,
                           background: cv.accentColor,
                           color: "#fff",
                           border: "none",
-                          fontSize: 14,
                           fontWeight: 800,
                           cursor: "pointer",
-                          fontFamily: "inherit",
-                          letterSpacing: "0.3px",
                         }}
                       >
-                        📩 Get Quote for {cv.brand} Cover
+                        📩 Get Quote for {cv.brand}
                       </button>
                     </Link>
                   </div>
@@ -674,14 +565,14 @@ export default function OnlineCover() {
             ))}
           </div>
 
-          {/* ── Custom CTA ── same pattern as Products.jsx ── */}
+          {/* ── Custom CTA ── */}
           <div
             className="cta-flex reveal"
             style={{
-              marginTop: "clamp(40px,6vw,64px)",
+              marginTop: "64px",
               background: "linear-gradient(135deg,#0e6b1b,#1b9e2d)",
               borderRadius: 14,
-              padding: "clamp(28px,5vw,48px) clamp(24px,5vw,56px)",
+              padding: "48px 56px",
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
@@ -699,24 +590,17 @@ export default function OnlineCover() {
               <h3
                 style={{
                   fontFamily: "'Barlow Condensed',sans-serif",
-                  fontSize: "clamp(22px,3vw,34px)",
+                  fontSize: "32px",
                   fontWeight: 800,
-                  textTransform: "uppercase",
                   color: "#fff",
                   marginBottom: 6,
                 }}
               >
                 Need Custom Branded Covers?
               </h3>
-              <p
-                style={{
-                  color: "rgba(255,255,255,0.82)",
-                  fontSize: "clamp(13px,1.4vw,15px)",
-                }}
-              >
-                Any brand · Any colour · Any size — D2C brands, fashion labels
-                and logistics companies welcome. Minimum order from 500 pcs with
-                pan India delivery.
+              <p style={{ color: "rgba(255,255,255,0.82)", fontSize: "15px" }}>
+                Any brand · Any colour · Any size. Minimum order from 500 pcs
+                with pan India delivery.
               </p>
             </div>
             <Link to="/contact" style={{ position: "relative", zIndex: 2 }}>

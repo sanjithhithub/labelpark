@@ -1,128 +1,379 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import useScrollReveal from '../hooks/useScrollReveal';
-import labelpainImg from "../assets/images/labelpain.jpg";
+import React from "react";
+import { Link } from "react-router-dom";
+import useScrollReveal from "../hooks/useScrollReveal";
+
+// --- Static Data ---
+import labelPlainImg from "../assets/images/labelpain.jpg";
+import mutcolorImg from "../assets/images/mutcolor.jpg";
 import Picture1Img from "../assets/images/Picture1.jpg";
-import multicolorStkImg from '../assets/images/multicolor_sticker.jpg';
-import syntheticlabelImg from '../assets/images/syntheticlabel.jpg';
-import jeweleylabelImg from "../assets/images/jeweleylabel.jpg";
-import holographiclabelImg from "../assets/images/holographiclabel.jpg";
-import laminatedlabelImg from "../assets/images/laminatedlabel.jpg";
-import RibbonlabelImg from "../assets/images/Ribbonlabel.jpg";
+import syntheticLabelImg from "../assets/images/syntheticlabel.jpg";
+import jewelryLabelImg from "../assets/images/jeweleylabel.jpg";
+import holographicLabelImg from "../assets/images/holographiclabel.jpg";
+import laminatedLabelImg from "../assets/images/laminatedlabel.jpg";
+import ribbonLabelImg from "../assets/images/Ribbonlabel.jpg";
 
 const labels = [
   {
-    img: labelpainImg,
+    slug: "barcode-stickers-plain",
+    img: labelPlainImg,
     name: "Barcode Stickers – Plain",
     tag: "Auto ID",
     desc: "High-quality plain barcode stickers for inventory management, logistics, and retail. Available in all standard 1D/2D barcode formats and custom sizes.",
+    features: [
+      "Direct Thermal or Thermal Transfer compatible",
+      "Smudge-proof matte finish",
+      "Standard and custom sizes",
+      "Aggressive adhesive options",
+    ],
+    specs: {
+      Material: "Paper / Direct Thermal / Synthetic Poly",
+      "Core Size": '1", 1.5", 3"',
+      Adhesive: "Permanent Acrylic",
+    },
   },
   {
-    img: Picture1Img,
+    slug: "multicolor-barcode-stickers",
+    img: mutcolorImg,
     name: "Multicolor Barcode Stickers",
     tag: "Printed",
     desc: "Vibrant full-color barcode labels combining visual appeal with reliable scanning accuracy. Perfect for retail shelves and consumer goods.",
+    features: [
+      "Full color process printing",
+      "Verified barcode scannability",
+      "Enhances brand visibility",
+      "Die-cut to any shape",
+    ],
+    specs: {
+      Material: "Semi-Gloss Paper / White BOPP",
+      Printing: "Digital or Flexographic",
+      Finish: "Gloss or Matte Lamination",
+    },
   },
   {
-    img: multicolorStkImg,
+    slug: "multicolor-stickers",
+    img: Picture1Img,
     name: "Multicolor Stickers",
     tag: "Branding",
     desc: "High-resolution multicolor stickers for brand promotion, product identification, and marketing materials in any shape or size.",
+    features: [
+      "High-resolution graphics",
+      "Custom die-cutting included",
+      "Durable inks",
+      "Bulk run options",
+    ],
+    specs: {
+      Material: "Vinyl / Paper / Clear BOPP",
+      Shapes: "Custom",
+      "Use Case": "Product packaging, promo handouts",
+    },
   },
   {
-    img: syntheticlabelImg,
+    slug: "synthetic-labels",
+    img: syntheticLabelImg,
     name: "Synthetic Labels",
     tag: "Durable",
     desc: "Water-resistant synthetic labels engineered for harsh environments with excellent tear resistance, chemical resistance and longevity.",
+    features: [
+      "Water, oil, and chemical resistant",
+      "Tear-proof material",
+      "UV resistant inks available",
+      "Long-term outdoor durability",
+    ],
+    specs: {
+      Material: "Polypropylene (BOPP) / Polyester",
+      "Temp Range": "-40°C to +150°C",
+      Finish: "Matte / Gloss",
+    },
   },
   {
-    img: jeweleylabelImg,
+    slug: "jewelry-labels",
+    img: jewelryLabelImg,
     name: "Jewelry Labels",
     tag: "Precision",
     desc: "Precision-crafted small-format labels for jewelry tagging. Clear, elegant, and scannable even in the smallest miniature sizes.",
+    features: [
+      "Non-adhesive center loop option",
+      "Ultra-fine barcode printing",
+      "Tamper-evident material",
+      "Elegant matte or clear finish",
+    ],
+    specs: {
+      Material: "Premium Polyester",
+      Size: "Custom small die-cuts",
+      Colors: "White, Clear, Silver, Gold",
+    },
   },
   {
-    img: holographiclabelImg,
+    slug: "holographic-hot-stamped-labels",
+    img: holographicLabelImg,
     name: "Holographic Hot Stamped Labels",
     tag: "Premium",
     desc: "Premium holographic stickers with hot foil stamping for luxury products, brand security, and anti-counterfeiting applications.",
+    features: [
+      "Tamper-evident void pattern",
+      "Custom holographic patterns",
+      "Elegant hot foil accent",
+      "Secure branding",
+    ],
+    specs: {
+      Material: "Holographic PET",
+      "Foil Colors": "Gold, Silver, Bronze, Color",
+      Security: "High",
+    },
   },
   {
-    img: laminatedlabelImg,
+    slug: "laminated-labels",
+    img: laminatedLabelImg,
     name: "Laminated Labels",
     tag: "Protected",
     desc: "Protective laminated stickers delivering maximum durability — resistant to scratches, moisture, UV fading and chemicals.",
+    features: [
+      "Excellent scratch resistance",
+      "UV fading protection",
+      "Wipeable surface",
+      "Heavy industrial use",
+    ],
+    specs: {
+      Material: "Semi-Gloss + PET Lamination",
+      Thickness: "Varies by requirement",
+      Use: "Chemical drums, machinery",
+    },
   },
   {
-    img: RibbonlabelImg,
+    slug: "thermal-ribbon",
+    img: ribbonLabelImg,
     name: "Thermal Ribbon",
     tag: "Consumables",
     desc: "Wax, Wax-Resin & Full Resin TTR ribbons compatible with all major barcode printer brands. Available in all widths and lengths.",
+    features: [
+      "Anti-static backcoat",
+      "Exceptional edge definition",
+      "Compatible with major printers (Zebra, TSC, Sato)",
+      "High print speed options",
+    ],
+    specs: {
+      Type: "Wax / Wax-Resin / Resin",
+      "Core Size": '0.5", 1"',
+      "Ink Face": "In or Out",
+    },
   },
 ];
 
 const tagColors = {
-  'Auto ID':    { bg:'#e6f7e8', color:'#0e6b1b' },
-  'Printed':    { bg:'#fef3e2', color:'#9a5a00' },
-  'Branding':   { bg:'#e8f0fe', color:'#1a56c0' },
-  'Durable':    { bg:'#fce8e8', color:'#b91c1c' },
-  'Precision':  { bg:'#f0e6ff', color:'#6b21a8' },
-  'Premium':    { bg:'#fef9e6', color:'#9a7700' },
-  'Protected':  { bg:'#e6f4fe', color:'#1a6b9a' },
-  'Consumables':{ bg:'#f0f0f0', color:'#444'    },
+  "Auto ID": { bg: "#e6f7e8", color: "#0e6b1b" },
+  Printed: { bg: "#fef3e2", color: "#9a5a00" },
+  Branding: { bg: "#e8f0fe", color: "#1a56c0" },
+  Durable: { bg: "#fce8e8", color: "#b91c1c" },
+  Precision: { bg: "#f0e6ff", color: "#6b21a8" },
+  Premium: { bg: "#fef9e6", color: "#9a7700" },
+  Protected: { bg: "#e6f4fe", color: "#1a6b9a" },
+  Consumables: { bg: "#f0f0f0", color: "#444" },
 };
 
 export default function Products() {
   useScrollReveal();
+
   return (
-    <div className="page-enter">
+    <div className="page-enter product-grid-page">
       <div className="page-hero">
         <div className="page-hero-inner">
           <div className="breadcrumb">
-            <Link to="/" className="bc-home">Home</Link>
+            <Link to="/" className="bc-home">
+              Home
+            </Link>
             <span className="bc-sep">›</span>
             <span className="bc-current">Products</span>
           </div>
-          <div className="section-eyebrow" style={{ color:'rgba(255,255,255,0.6)' }}>Our Products</div>
-          <h1 className="section-title" style={{ fontSize:'clamp(38px,7vw,84px)', color:'#fff', marginBottom:16 }}
-            dangerouslySetInnerHTML={{ __html:'Labels & <span style="color:#3dd958">Stickers</span>' }} />
-          <p className="section-sub" style={{ color:'rgba(255,255,255,0.82)', maxWidth:520 }}>
-            We manufacture all types of labels in different sizes and shapes tailored to your exact requirements.
+          <div
+            className="section-eyebrow"
+            style={{ color: "rgba(255,255,255,0.6)" }}
+          >
+            Our Products
+          </div>
+          <h1
+            className="section-title"
+            style={{
+              fontSize: "clamp(38px,7vw,84px)",
+              color: "#fff",
+              marginBottom: 16,
+            }}
+            dangerouslySetInnerHTML={{
+              __html: 'Labels & <span style="color:#3dd958">Stickers</span>',
+            }}
+          />
+          <p
+            className="section-sub"
+            style={{ color: "rgba(255,255,255,0.82)", maxWidth: 520 }}
+          >
+            We manufacture all types of labels in different sizes and shapes
+            tailored to your exact requirements.
           </p>
         </div>
       </div>
 
-      <section className="lp-section" style={{ background:'#f4f4f2' }}>
+      <section className="lp-section" style={{ background: "#f4f4f2" }}>
         <div className="lp-container">
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(min(280px,100%), 1fr))', gap:'clamp(14px,2vw,26px)' }}>
-            {labels.map((p,i) => {
-              const tc = tagColors[p.tag] || tagColors['Consumables'];
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns:
+                "repeat(auto-fill, minmax(min(280px,100%), 1fr))",
+              gap: "clamp(14px,2vw,26px)",
+            }}
+          >
+            {labels.map((p, i) => {
+              const tc = tagColors[p.tag] || tagColors["Consumables"];
               return (
-                <div key={p.name} className={`card reveal delay-${(i%4)+1}`}>
-                  <div style={{ height:'clamp(160px,18vw,230px)', overflow:'hidden', background:'#ddd', position:'relative' }}>
-                    <img src={p.img} alt={p.name} style={{ width:'100%', height:'100%', objectFit:'cover', transition:'transform .55s ease' }}
-                      onMouseEnter={e=>e.target.style.transform='scale(1.08)'}
-                      onMouseLeave={e=>e.target.style.transform='scale(1)'} />
-                    <div style={{ position:'absolute', inset:0, background:'linear-gradient(to top,rgba(0,0,0,0.22),transparent 55%)' }} />
-                    <span style={{ position:'absolute', top:12, left:12, fontSize:10, fontWeight:800, letterSpacing:'1px', textTransform:'uppercase', color:tc.color, background:tc.bg, padding:'3px 10px', borderRadius:20 }}>{p.tag}</span>
+                // Card is now a DIV (Static), not a Link
+                <div
+                  key={p.name}
+                  className={`card reveal delay-${(i % 4) + 1}`}
+                  style={{
+                    color: "inherit",
+                    display: "block",
+                    cursor: "default",
+                  }}
+                >
+                  <div
+                    style={{
+                      height: "clamp(160px,18vw,230px)",
+                      overflow: "hidden",
+                      background: "#ddd",
+                      position: "relative",
+                      borderRadius: "8px 8px 0 0",
+                    }}
+                  >
+                    <img
+                      src={p.img}
+                      alt={p.name}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "linear-gradient(to top,rgba(0,0,0,0.22),transparent 55%)",
+                      }}
+                    />
+                    <span
+                      style={{
+                        position: "absolute",
+                        top: 12,
+                        left: 12,
+                        fontSize: 10,
+                        fontWeight: 800,
+                        letterSpacing: "1px",
+                        textTransform: "uppercase",
+                        color: tc.color,
+                        background: tc.bg,
+                        padding: "3px 10px",
+                        borderRadius: 20,
+                      }}
+                    >
+                      {p.tag}
+                    </span>
                   </div>
-                  <div style={{ padding:'clamp(14px,2vw,22px) clamp(16px,2vw,24px) clamp(16px,2vw,28px)' }}>
-                    <h3 style={{ fontWeight:700, fontSize:'clamp(14px,1.5vw,17px)', color:'#0a0a0a', marginBottom:8 }}>{p.name}</h3>
-                    <p style={{ fontSize:'clamp(12px,1.2vw,13.5px)', color:'#666', lineHeight:1.68 }}>{p.desc}</p>
+                  <div
+                    style={{
+                      padding:
+                        "clamp(14px,2vw,22px) clamp(16px,2vw,24px) clamp(16px,2vw,28px)",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        fontWeight: 700,
+                        fontSize: "clamp(14px,1.5vw,17px)",
+                        color: "#0a0a0a",
+                        marginBottom: 8,
+                      }}
+                    >
+                      {p.name}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: "clamp(12px,1.2vw,13.5px)",
+                        color: "#666",
+                        lineHeight: 1.68,
+                      }}
+                    >
+                      {p.desc}
+                    </p>
+                    {/* Feature list added here for detail within the card since it's no longer clickable */}
+                    <div
+                      style={{
+                        marginTop: "15px",
+                        borderTop: "1px solid #eee",
+                        paddingTop: "10px",
+                      }}
+                    >
+                      {p.features.slice(0, 2).map((f) => (
+                        <div
+                          key={f}
+                          style={{
+                            fontSize: "11px",
+                            color: "#888",
+                            marginBottom: "4px",
+                          }}
+                        >
+                          • {f}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* Custom CTA */}
-          <div className="cta-flex reveal" style={{ marginTop:'clamp(40px,6vw,64px)', background:'linear-gradient(135deg,#0e6b1b,#1b9e2d)', borderRadius:14, padding:'clamp(28px,5vw,48px) clamp(24px,5vw,56px)', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:24, position:'relative', overflow:'hidden' }}>
-            <div className="barcode-bg" style={{ position:'absolute', inset:0, opacity:.5 }} />
-            <div style={{ position:'relative', zIndex:2 }}>
-              <h3 style={{ fontFamily:"'Barlow Condensed',sans-serif", fontSize:'clamp(22px,3vw,34px)', fontWeight:800, textTransform:'uppercase', color:'#fff', marginBottom:6 }}>Custom Sizes & Shapes Available</h3>
-              <p style={{ color:'rgba(255,255,255,0.82)', fontSize:'clamp(13px,1.4vw,15px)' }}>We can manufacture all above labels in any size, shape, or specification you require.</p>
+          <div
+            className="cta-flex reveal"
+            style={{
+              marginTop: "clamp(40px,6vw,64px)",
+              background: "linear-gradient(135deg,#0e6b1b,#1b9e2d)",
+              borderRadius: 14,
+              padding: "clamp(28px,5vw,48px) clamp(24px,5vw,56px)",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: 24,
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              className="barcode-bg"
+              style={{ position: "absolute", inset: 0, opacity: 0.5 }}
+            />
+            <div style={{ position: "relative", zIndex: 2 }}>
+              <h3
+                style={{
+                  fontFamily: "'Barlow Condensed',sans-serif",
+                  fontSize: "clamp(22px,3vw,34px)",
+                  fontWeight: 800,
+                  textTransform: "uppercase",
+                  color: "#fff",
+                  marginBottom: 6,
+                }}
+              >
+                Custom Sizes & Shapes Available
+              </h3>
+              <p
+                style={{
+                  color: "rgba(255,255,255,0.82)",
+                  fontSize: "clamp(13px,1.4vw,15px)",
+                }}
+              >
+                We can manufacture all above labels in any size, shape, or
+                specification you require.
+              </p>
             </div>
-            <Link to="/contact" style={{ position:'relative', zIndex:2 }}>
+            <Link to="/contact" style={{ position: "relative", zIndex: 2 }}>
               <button className="btn-white">Request Custom Quote</button>
             </Link>
           </div>
