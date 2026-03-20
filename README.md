@@ -68,19 +68,19 @@ Free plan: **200 emails/month**
 
    **To Email:** `labelparkcbe@gmail.com`
 
-3. Click **Save** → copy the **Template ID** (e.g. `template_xyz9876`)
+3. Click **Save** → copy the **Template ID** (e.g. ``)
 
 ### Step 4 — Get your Public Key
 1. Top-right → **Account** → **General**
-2. Copy **Public Key** (e.g. `ABC123XYZ456...`)
+2. Copy **Public Key** (e.g. `...`)
 
 ### Step 5 — Paste into Contact.jsx
 Open `src/pages/Contact.jsx` and replace these 3 lines:
 
 ```js
-const SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← e.g. 'service_abc1234'
-const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // ← e.g. 'template_xyz9876'
-const PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';  // ← e.g. 'ABC123XYZ456...'
+const SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← e.g. ''
+const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // ← e.g. ''
+const PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';  // ← e.g. '...'
 ```
 
 ✅ Done! The form will now send real emails to **labelparkcbe@gmail.com**
