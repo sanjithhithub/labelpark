@@ -44,7 +44,8 @@ const CONTACT_INFO = [
       </>
     ),
   },
-  { icon: "✉️", label: "Email", val: TO_EMAIL }, // Using the variable here too
+  { icon: "✉️", label: "Email", val: "labelparkcbe@gmail.com"},
+
   {
     icon: "🕐",
     label: "Working Hours",
